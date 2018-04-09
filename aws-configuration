@@ -1,7 +1,7 @@
 ## login into Ubuntu 16.04 instance
 ssh -i <key_pair>.pem http://ec2-xxx-xxx-xxx-xxx.compute-1.amazonaws.com
 
-## Install drivers for Nvidia Tesla K80 GPU Ubuntu 16.04 
+## Prepare for installation of Nvidia Tesla K80 GPU Ubuntu 16.04 drivers
 sudo apt-get update
 sudo apt-get upgrade -y linux-aws
 sudo reboot
@@ -17,6 +17,7 @@ sudo apt-get install -y gcc make linux-headers-$(uname -r)
 sudo gcc --version
 sudo make --version
 
+## Install drivers for Nvidia Tesla K80 GPU Ubuntu 16.04
 ## Download Nvidia for Tesla 80 Ubuntu 16.04
 wget http://us.download.nvidia.com/XFree86/Linux-x86_64/367.106/NVIDIA-Linux-x86_64-367.106.run
 sudo /bin/bash ./NVIDIA-Linux-x86_64-367.106.run
