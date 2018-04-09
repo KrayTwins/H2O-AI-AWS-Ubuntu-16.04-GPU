@@ -38,3 +38,18 @@ ssh -i <key_pair>.pem http://ec2-xxx-xxx-xxx-xxx.compute-1.amazonaws.com
 ##    Product Brand                   : Tesla
 
 sudo nvidia-smi -q | head
+
+## Install docker-ce to run the H2O Driverless AI conatiner (note that when this container is to use the GPU Compute the use of nvidea -docker  is used)  
+mkdir dai_rel_1.0.30
+cd dai_rel_1.0.30/
+wget https://s3-us-west-2.amazonaws.com/h2o-internal-release/docker/driverless-ai-docker-runtime-latest-release.gz
+mkdir data log license tmp
+
+
+sudo apt install apt-transport-https ca-certificates curl software-properties-common
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu artful stable"
+sudo apt update
+sudo apt install docker-ce
+
+
