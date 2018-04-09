@@ -1,4 +1,4 @@
-## login into Ubuntu 16.04 instance
+## login into Ubuntu 16.04 EC2 instance
 ssh -i <key_pair>.pem http://ec2-xxx-xxx-xxx-xxx.compute-1.amazonaws.com
 
 ## Prepare for installation of Nvidia Tesla K80 GPU Ubuntu 16.04 drivers
