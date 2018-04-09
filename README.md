@@ -4,7 +4,7 @@ development and deployment of state-of-the-art predictive analytics models. It r
 data from plain text sources and automates data visualization, feature engineering, model training, \
 and model explanation.
 
-H2O has a Community AMI for the h2oai-driverless-ai-1.0.24 - ami-222aea5f
+H2O has a Community AMI for the h2oai-driverless-ai-1.0.24 - ami-222aea5f \
 This is the easiest method of getting \
 H2O Driverless AI up and running quickly with a license to run on AWS. \
 http://docs.h2o.ai/driverless-ai/latest-stable/docs/userguide/install/aws.html
