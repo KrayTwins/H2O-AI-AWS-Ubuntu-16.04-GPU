@@ -11,7 +11,7 @@ http://docs.h2o.ai/driverless-ai/latest-stable/docs/userguide/install/aws.html
 
 # Intalling H2O Driverless AI GPU on AWS p2.exlarge with Ubuntu-16.04
 
-If you want to try the H2O Diverless AI you need to buy or request a trial license \
+If you want to try the H2O Diverless AI you need to contact H2O sales or request a trial license \
 https://www.h2o.ai/try-driverless-ai/
 
 
