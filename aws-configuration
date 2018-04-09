@@ -63,6 +63,17 @@ sudo rm /tmp/nvidia-docker*.deb
 ## Inside the dai_rel_1.0.30, load the H2O Driverless AI into docker as an image
 sudo docker load < driverless-ai-docker-runtime-latest-release.gz
 
+## ---------------------------------
+## Welcome to H2O.ai's Driverless AI
+## ---------------------------------
+##     version: 1.0.30
+##
+## - Put data in the volume mounted at /data
+## - Logs are written to the volume mounted at /log/20180409-124351
+## - Connect to Driverless AI on port 12345 inside the container
+## - Connect to Jupyter notebook on port 8888 inside the container
+## Copy http://ec2-xxx-xxx-xxx-xxx.compute-1.amazonaws.com:12345 to you browser
+
 nvidia-docker run \
     --rm \
     -u `id -u`:`id -g` \
