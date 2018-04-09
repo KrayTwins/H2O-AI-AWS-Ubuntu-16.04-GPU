@@ -9,9 +9,11 @@ This is the easiest method of getting \
 H2O Driverless AI up and running quickly with a license to run on AWS. \
 http://docs.h2o.ai/driverless-ai/latest-stable/docs/userguide/install/aws.html
 
-# H2O Driverless AI GPU on AWS p2.exlarge with Ubuntu-16.04
+# Intalling H2O Driverless AI GPU on AWS p2.exlarge with Ubuntu-16.04
 
-If you 
+If you want to try the H2O Diverless AI you need to buy or request a trial license \
+https://www.h2o.ai/try-driverless-ai/
+
 
 Choose an Amazon Machine Image (AMI) \
 https://console.aws.amazon.com/ec2/v2/home?region=us-east-1#LaunchInstanceWizard: \
