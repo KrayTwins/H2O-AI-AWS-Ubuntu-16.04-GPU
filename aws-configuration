@@ -1,30 +1,41 @@
 ## login into Ubuntu 16.04 EC2 instance
 ssh -i <key_pair>.pem http://ec2-xxx-xxx-xxx-xxx.compute-1.amazonaws.com
-
+sudo su
 ## Prepare for installation of Nvidia Tesla K80 GPU Ubuntu 16.04 drivers
-sudo apt-get update
-sudo apt-get upgrade -y linux-aws
-sudo reboot
+apt-get update
+apt-get upgrade -y linux-aws
+reboot
 
 ## login to rebooted instance
 ssh -i <key_pair>.pem http://ec2-xxx-xxx-xxx-xxx.compute-1.amazonaws.com
 
 ## install gcc+ and make
-sudo apt-get install -y gcc make linux-headers-$(uname -r)
+apt-get install -y gcc make linux-headers-$(uname -r)
 
 ## A common issue when installing the Nvidia drivers, is that 'gcc' and 'make' are not in path, check if they are installed
+# gcc (Ubuntu 5.4.0-6ubuntu1~16.04.9) 5.4.0 20160609
+# Copyright (C) 2015 Free Software Foundation, Inc.
+# This is free software; see the source for copying conditions.  There is NO
+# warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+# GNU Make 4.1
+# Built for x86_64-pc-linux-gnu
+# Copyright (C) 1988-2014 Free Software Foundation, Inc.
+# License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+# This is free software: you are free to change and redistribute it.
+# There is NO WARRANTY, to the extent permitted by law.
 
-sudo gcc --version
-sudo make --version
+gcc --version
+make --version
 
 ## Install drivers for Nvidia Tesla K80 GPU Ubuntu 16.04
 ## Download Nvidia for Tesla 80 Ubuntu 16.04
 wget http://us.download.nvidia.com/XFree86/Linux-x86_64/367.106/NVIDIA-Linux-x86_64-367.106.run
-sudo /bin/bash ./NVIDIA-Linux-x86_64-367.106.run
-sudo reboot
+/bin/bash ./NVIDIA-Linux-x86_64-367.106.run
+reboot
 
 ## login to rebooted instance
 ssh -i <key_pair>.pem http://ec2-xxx-xxx-xxx-xxx.compute-1.amazonaws.com
+sudo su
 
 ## Check Nvidia Tesla K80 GPU driver for Ubuntu 16.04 is installed
 ## ==============NVSMI LOG==============
@@ -37,7 +48,7 @@ ssh -i <key_pair>.pem http://ec2-xxx-xxx-xxx-xxx.compute-1.amazonaws.com
 ##    Product Name                    : Tesla K80
 ##    Product Brand                   : Tesla
 
-sudo nvidia-smi -q | head
+nvidia-smi -q | head
 
 ## Install docker-ce to run the H2O Driverless AI container (note use the 'docker run' commend for CPU and 'nvidea-docker run' GPU Compute)  
 mkdir dai_rel_1.0.30
@@ -45,23 +56,22 @@ cd dai_rel_1.0.30/
 wget https://s3-us-west-2.amazonaws.com/h2o-internal-release/docker/driverless-ai-docker-runtime-latest-release.gz
 mkdir data log license tmp
 
-
-sudo apt install apt-transport-https ca-certificates curl software-properties-common
+apt install apt-transport-https ca-certificates curl software-properties-common
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu artful stable"
-sudo apt update
-sudo apt install docker-ce
+add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu artful stable"
+apt update
+apt install docker-ce
 
-## Check docker is running with 
-sudo docker info
+## Check docker is running with, note the 59.97GiB memory and 4CPU's 
+docker info
 
 ## Install 'nvidea-docker' package
 wget -P /tmp https://github.com/NVIDIA/nvidia-docker/releases/download/v1.0.1/nvidia-docker_1.0.1-1_amd64.deb
-sudo dpkg -i /tmp/nvidia-docker*.deb
-sudo rm /tmp/nvidia-docker*.deb
+dpkg -i /tmp/nvidia-docker*.deb
+rm /tmp/nvidia-docker*.deb
 
 ## Inside the dai_rel_1.0.30, load the H2O Driverless AI into docker as an image
-sudo docker load < driverless-ai-docker-runtime-latest-release.gz
+docker load < driverless-ai-docker-runtime-latest-release.gz
 
 ## ---------------------------------
 ## Welcome to H2O.ai's Driverless AI
