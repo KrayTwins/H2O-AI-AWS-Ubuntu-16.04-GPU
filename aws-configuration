@@ -1,0 +1,39 @@
+## login into Ubuntu 16.04 instance
+ssh -i <key_pair>.pem http://ec2-xxx-xxx-xxx-xxx.compute-1.amazonaws.com
+
+## Install drivers for Nvidia Tesla K80 GPU Ubuntu 16.04 
+sudo apt-get update
+sudo apt-get upgrade -y linux-aws
+sudo reboot
+
+## login to rebooted instance
+ssh -i <key_pair>.pem http://ec2-xxx-xxx-xxx-xxx.compute-1.amazonaws.com
+
+## install gcc+ and make
+sudo apt-get install -y gcc make linux-headers-$(uname -r)
+
+## A common issue when installing the Nvidia drivers, is that 'gcc' and 'make' are not in path, check if they are installed
+
+sudo gcc --version
+sudo make --version
+
+## Download Nvidia for Tesla 80 Ubuntu 16.04
+wget http://us.download.nvidia.com/XFree86/Linux-x86_64/367.106/NVIDIA-Linux-x86_64-367.106.run
+sudo /bin/bash ./NVIDIA-Linux-x86_64-367.106.run
+sudo reboot
+
+## login to rebooted instance
+ssh -i <key_pair>.pem http://ec2-xxx-xxx-xxx-xxx.compute-1.amazonaws.com
+
+## Check Nvidia Tesla K80 GPU driver for Ubuntu 16.04 is installed
+## ==============NVSMI LOG==============
+##
+## Timestamp                           : Mon Apr  9 12:25:59 2018
+## Driver Version                      : 367.106
+##
+## Attached GPUs                       : 1
+## GPU 0000:00:1E.0
+##    Product Name                    : Tesla K80
+##    Product Brand                   : Tesla
+
+sudo nvidia-smi -q | head
