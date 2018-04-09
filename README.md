@@ -1,6 +1,11 @@
+# H2O Driverless AI on AWS
+H2O has a Community AMI for the h2oai-driverless-ai-1.0.24 - ami-222aea5f
+This is the easiest method of getting H2O Driverless running quickly and conatins a license to run on AWS.
+http://docs.h2o.ai/driverless-ai/latest-stable/docs/userguide/install/aws.html
+
 # H2O Driverless AI GPU on AWS p2.exlarge with Ubuntu-16.04
 
-# Choose an Amazon Machine Image (AMI)
+Choose an Amazon Machine Image (AMI)
 https://console.aws.amazon.com/ec2/v2/home?region=us-east-1#LaunchInstanceWizard: \
 Ubuntu Server 16.04 LTS (HVM), SSD Volume Type - ami-43a15f3e \
 Choose an Instance Type \
