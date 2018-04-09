@@ -9,9 +9,9 @@ The p2.exlarge, is a powerful instance with 4 vCPUs, 61 Gb or memory and by defa
 
 
 
-https://aws.amazon.com/ec2/instance-types/p2/ \
+https://aws.amazon.com/ec2/instance-types/p2/ 
 
-http://docs.h2o.ai/driverless-ai/latest-stable/docs/userguide/install/ubuntu.html# \
+http://docs.h2o.ai/driverless-ai/latest-stable/docs/userguide/install/ubuntu.html# 
 
 For this experiment lets choose use an AWS p2.xlarge AMI (It is the lowest spec GPU Compute AMI available and has a \
 on demand price $0.90 /hr, however you can usually get p2.xlarge at a Spot Price of less than half that in us-west-1 and us-east-1)
