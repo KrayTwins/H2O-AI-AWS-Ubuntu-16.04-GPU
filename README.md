@@ -23,6 +23,7 @@ Ubuntu Server 16.04 LTS (HVM), SSD Volume Type - ami-43a15f3e \
 Choose an Instance Type \
 To take advantage of the enormous computing capability of H2O AI choose a GPU Compute Family Instance. \
 The p2.exlarge, is a powerful instance with 4 vCPUs, 61 Gb or memory and by default 1 Nvidia Tesla K80 GPU. \
+Choose at least 40Gb for EBS Storage
 
 https://aws.amazon.com/ec2/instance-types/p2/ 
 
