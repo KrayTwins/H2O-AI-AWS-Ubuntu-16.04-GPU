@@ -55,6 +55,27 @@ sudo apt install docker-ce
 ## Check docker is running with 
 sudo docker info
 
+## Install 'nvidea-docker' package
+wget -P /tmp https://github.com/NVIDIA/nvidia-docker/releases/download/v1.0.1/nvidia-docker_1.0.1-1_amd64.deb
+sudo dpkg -i /tmp/nvidia-docker*.deb
+sudo rm /tmp/nvidia-docker*.deb
+
+## Inside the dai_rel_1.0.30, load the H2O Driverless AI into docker as an image
+sudo docker load < driverless-ai-docker-runtime-latest-release.gz
+
+nvidia-docker run \
+    --rm \
+    -u `id -u`:`id -g` \
+    -p 12345:12345 \
+    -p 54321:54321 \
+    -p 8888:8888 \
+    -v `pwd`/data:/data \
+    -v `pwd`/log:/log \
+    -v `pwd`/license:/license \
+    -v `pwd`/tmp:/tmp \
+    opsh2oai/h2oai-runtime
+
+
 
 
 
