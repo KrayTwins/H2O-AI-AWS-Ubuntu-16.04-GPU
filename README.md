@@ -25,7 +25,7 @@ To take advantage of the enormous computing capability of H2O AI choose a GPU Co
 The p2.exlarge, is a powerful instance with 4 vCPUs, 61 Gb or memory and by default 1 Nvidia Tesla K80 GPU. \
 Choose at least 40Gb for EBS Storage
 
-[AWS GPU Compute p2 intsnaces](https://aws.amazon.com/ec2/instance-types/p2/)
+[AWS GPU Compute p2 intstances](https://aws.amazon.com/ec2/instance-types/p2/)
  
 http://docs.h2o.ai/driverless-ai/latest-stable/docs/userguide/install/ubuntu.html# 
 
