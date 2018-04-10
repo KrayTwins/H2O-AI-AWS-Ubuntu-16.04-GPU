@@ -11,10 +11,10 @@ http://docs.h2o.ai/driverless-ai/latest-stable/docs/userguide/install/aws.html
 
 # Installing H2O Driverless AI on AWS GPU Compute EC2 p2.exlarge with Ubuntu-16.04
 
-If you want to try the H2O Diverless AI you need to contact H2O sales or request a trial license \
-https://www.h2o.ai/try-driverless-ai/ \
+If you want to try the H2O Diverless AI you need to contact H2O sales sales@h2o.ai or request a trial license \
+https://www.h2o.ai/try-driverless-ai/
 
-For this experiment lets choose use an AWS p2.xlarge AMI (It is the lowest spec GPU Compute AMI available and has a \
+For this example lets choose an use an AWS p2.xlarge instance (It is the lowest spec GPU Compute AMI available and has a \
 on demand price $0.90 /hr, however you can usually get p2.xlarge at a Spot Price of less than half that in us-west-1 and us-east-1)
 
 Choose an Amazon Machine Image (AMI) \
