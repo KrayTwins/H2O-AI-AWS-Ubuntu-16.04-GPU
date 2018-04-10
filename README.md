@@ -36,6 +36,9 @@ $ reboot
 ```
 
 ```
+## login back into Ubuntu 16.04 EC2 instance
+$ ssh -i <key_pair>.pem http://ec2-xxx-xxx-xxx-xxx.compute-1.amazonaws.com
+$ sudo su
 ## install gcc and make
 $ apt-get install -y gcc make linux-headers-$(uname -r)
 
@@ -46,6 +49,19 @@ $ /bin/bash ./NVIDIA-Linux-x86_64-367.106.run
 $ reboot
 ```
 
+```
+## login back into Ubuntu 16.04 EC2 instance
+$ ssh -i <key_pair>.pem http://ec2-xxx-xxx-xxx-xxx.compute-1.amazonaws.com
+$ sudo su
+## Check Nvidia divers are installed for Nvidia Telsla K80 GPU
+$ nvidia-smi -q | head
+
+## Install docker-ce to run the H2O Driverless AI container (note use the 'docker run' commend for CPU and 'nvidea-docker run' GPU Compute)  
+$ mkdir dai_rel_1.0.30
+$ cd dai_rel_1.0.30/
+$ wget https://s3-us-west-2.amazonaws.com/h2o-internal-release/docker/driverless-ai-docker-runtime-latest-release.gz
+$ mkdir data log license tmp
+```
 
 [AWS GPU Compute p2 intstances](https://aws.amazon.com/ec2/instance-types/p2/) \
 [Install H2O Diverless AI on Ubuntu with GPUs](http://docs.h2o.ai/driverless-ai/latest-stable/docs/userguide/install/ubuntu.html# )
