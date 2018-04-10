@@ -25,6 +25,9 @@ To take advantage of the enormous computing capability of H2O AI choose a GPU Co
 The p2.exlarge, is a powerful instance with 4 vCPUs, 61 Gb or memory and by default 1 Nvidia Tesla K80 GPU. \
 Choose at least 40Gb for EBS Storage
 
+[AWS GPU Compute p2 intstances](https://aws.amazon.com/ec2/instance-types/p2/) \
+[Install H2O Diverless AI on Ubuntu with GPUs](http://docs.h2o.ai/driverless-ai/latest-stable/docs/userguide/install/ubuntu.html# )
+
 ```
 ## login into Ubuntu 16.04 EC2 instance
 $ ssh -i <key_pair>.pem http://ec2-xxx-xxx-xxx-xxx.compute-1.amazonaws.com
@@ -95,8 +98,34 @@ $ apt update
 $ apt install docker-ce
 ```
 
-[AWS GPU Compute p2 intstances](https://aws.amazon.com/ec2/instance-types/p2/) \
-[Install H2O Diverless AI on Ubuntu with GPUs](http://docs.h2o.ai/driverless-ai/latest-stable/docs/userguide/install/ubuntu.html# )
+```
+## Install Nvidia docker package: nvidia-docker  
+$ wget -P /tmp https://github.com/NVIDIA/nvidia-docker/releases/download/v1.0.1/nvidia-docker_1.0.1-1_amd64.deb
+$ sudo dpkg -i /tmp/nvidia-docker*.deb
+$ sudo rm /tmp/nvidia-docker*.deb
+```
+```
+$ docker load < driverless-ai-docker-runtime-latest-release.gz
+
+```
+
+```
+## nvidia-docker conatiner opening ports 12345 and 54321
+# http://ec2-xxx-xxx-xxx-xxx.compute-1.amazonaws.com:12345
+nvidia-docker run \
+    --rm \
+    -u `id -u`:`id -g` \
+    -p 12345:12345 \
+    -p 54321:54321 \
+    -p 8888:8888 \
+    -v `pwd`/data:/data \
+    -v `pwd`/log:/log \
+    -v `pwd`/license:/license \
+    -v `pwd`/tmp:/tmp \
+    opsh2oai/h2oai-runtime
+```
+
+
 
 
 
