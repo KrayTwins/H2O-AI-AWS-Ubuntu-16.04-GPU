@@ -47,7 +47,7 @@ $ reboot
 # License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
-
+$ sudo apt-get install -y gcc make linux-headers-$(uname -r)
 $ gcc --version
 $ make --version
 
