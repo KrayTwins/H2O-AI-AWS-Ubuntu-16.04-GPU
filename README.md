@@ -25,9 +25,43 @@ To take advantage of the enormous computing capability of H2O AI choose a GPU Co
 The p2.exlarge, is a powerful instance with 4 vCPUs, 61 Gb or memory and by default 1 Nvidia Tesla K80 GPU. \
 Choose at least 40Gb for EBS Storage
 
-[AWS GPU Compute p2 intstances](https://aws.amazon.com/ec2/instance-types/p2/)
- 
-http://docs.h2o.ai/driverless-ai/latest-stable/docs/userguide/install/ubuntu.html# 
+```
+## login into Ubuntu 16.04 EC2 instance
+$ ssh -i <key_pair>.pem http://ec2-xxx-xxx-xxx-xxx.compute-1.amazonaws.com
+$ sudo su
+## Prepare for installation of Nvidia Tesla K80 GPU Ubuntu 16.04 drivers
+$ apt-get update
+$ apt-get upgrade -y linux-aws
+$ reboot
+```
+
+```
+## A common issue when installing the Nvidia drivers, is that 'gcc' and 'make' are not in path, check if they are installed
+# gcc (Ubuntu 5.4.0-6ubuntu1~16.04.9) 5.4.0 20160609
+# Copyright (C) 2015 Free Software Foundation, Inc.
+# This is free software; see the source for copying conditions.  There is NO
+# warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+# GNU Make 4.1
+# Built for x86_64-pc-linux-gnu
+# Copyright (C) 1988-2014 Free Software Foundation, Inc.
+# License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+# This is free software: you are free to change and redistribute it.
+# There is NO WARRANTY, to the extent permitted by law.
+
+$ gcc --version
+$ make --version
+
+## Install drivers for Nvidia Tesla K80 GPU Ubuntu 16.04
+## Download Nvidia for Tesla 80 Ubuntu 16.04
+$ wget http://us.download.nvidia.com/XFree86/Linux-x86_64/367.106/NVIDIA-Linux-x86_64-367.106.run
+$ /bin/bash ./NVIDIA-Linux-x86_64-367.106.run
+$ reboot
+```
+
+
+[AWS GPU Compute p2 intstances](https://aws.amazon.com/ec2/instance-types/p2/) \
+[Install H2O Diverless AI on Ubuntu with GPUs](http://docs.h2o.ai/driverless-ai/latest-stable/docs/userguide/install/ubuntu.html# )
+
 
 
 
