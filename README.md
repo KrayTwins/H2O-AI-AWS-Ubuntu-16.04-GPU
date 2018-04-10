@@ -63,6 +63,38 @@ $ wget https://s3-us-west-2.amazonaws.com/h2o-internal-release/docker/driverless
 $ mkdir data log license tmp
 ```
 
+```
+## login back into Ubuntu 16.04 EC2 instance
+$ ssh -i <key_pair>.pem http://ec2-xxx-xxx-xxx-xxx.compute-1.amazonaws.com
+$ sudo su
+## Check Nvidia divers are installed for Nvidia Telsla K80 GPU
+$ nvidia-smi -q | head
+```
+
+If installed correctly will show \
+==============NVSMI LOG==============
+
+Timestamp                           : Mon Apr  9 12:25:59 2018 \
+Driver Version                      : 367.106
+
+Attached GPUs                       : 1 \
+GPU 0000:00:1E.0 \
+    Product Name                    : Tesla K80 \
+    Product Brand                   : Tesla 
+
+```
+## Install docker-ce to run the H2O Driverless AI container (note use the 'docker run' commend for CPU and 'nvidea-docker run' GPU Compute)  
+$ mkdir dai_rel_1.0.30
+$ cd dai_rel_1.0.30/
+$ wget https://s3-us-west-2.amazonaws.com/h2o-internal-release/docker/driverless-ai-docker-runtime-latest-release.gz
+$ mkdir data log license tmp
+$ apt install apt-transport-https ca-certificates curl software-properties-common
+$ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+$ add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu artful stable"
+$ apt update
+$ apt install docker-ce
+```
+
 [AWS GPU Compute p2 intstances](https://aws.amazon.com/ec2/instance-types/p2/) \
 [Install H2O Diverless AI on Ubuntu with GPUs](http://docs.h2o.ai/driverless-ai/latest-stable/docs/userguide/install/ubuntu.html# )
 
