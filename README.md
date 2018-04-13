@@ -59,7 +59,7 @@ $ sudo su
 ## Check Nvidia divers are installed for Nvidia Telsla K80 GPU
 $ nvidia-smi -q | head
 
-## Install docker-ce to run the H2O Driverless AI container (note use the 'docker run' commend for CPU and 'nvidea-docker run' GPU Compute)  
+## Download H2O Driverless AI container (note use the 'docker run' command for CPU and 'nvidea-docker run' GPU Compute)  
 $ mkdir dai_rel_1.0.30
 $ cd dai_rel_1.0.30/
 $ wget https://s3-us-west-2.amazonaws.com/h2o-internal-release/docker/driverless-ai-docker-runtime-latest-release.gz
