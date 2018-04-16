@@ -33,8 +33,8 @@ Choose at least 40Gb for EBS Storage
 $ ssh -i <key_pair>.pem http://ec2-xxx-xxx-xxx-xxx.compute-1.amazonaws.com
 $ sudo su
 ## Prepare for installation of Nvidia Tesla K80 GPU Ubuntu 16.04 drivers
-$ apt-get update
-$ apt-get upgrade -y linux-aws
+$ apt update
+$ apt upgrade -y linux-aws
 $ reboot
 ```
 
@@ -43,27 +43,13 @@ $ reboot
 $ ssh -i <key_pair>.pem http://ec2-xxx-xxx-xxx-xxx.compute-1.amazonaws.com
 $ sudo su
 ## install gcc and make
-$ apt-get install -y gcc make linux-headers-$(uname -r)
+$ apt install -y gcc make linux-headers-$(uname -r)
 
 ## Install drivers for Nvidia Tesla K80 GPU Ubuntu 16.04
 ## Download Nvidia for Tesla 80 Ubuntu 16.04
 $ wget http://us.download.nvidia.com/XFree86/Linux-x86_64/367.106/NVIDIA-Linux-x86_64-367.106.run
 $ /bin/bash ./NVIDIA-Linux-x86_64-367.106.run
 $ reboot
-```
-
-```
-## login back into Ubuntu 16.04 EC2 instance
-$ ssh -i <key_pair>.pem http://ec2-xxx-xxx-xxx-xxx.compute-1.amazonaws.com
-$ sudo su
-## Check Nvidia divers are installed for Nvidia Telsla K80 GPU
-$ nvidia-smi -q | head
-
-## Download H2O Driverless AI container (note use the 'docker run' command for CPU and 'nvidea-docker run' GPU Compute)  
-$ mkdir dai_rel_1.0.30
-$ cd dai_rel_1.0.30/
-$ wget https://s3-us-west-2.amazonaws.com/h2o-internal-release/docker/driverless-ai-docker-runtime-latest-release.gz
-$ mkdir data log license tmp
 ```
 
 ```
@@ -86,6 +72,8 @@ GPU 0000:00:1E.0 \
     Product Brand                   : Tesla 
 
 ```
+
+```
 ## Install docker-ce to run the H2O Driverless AI container (note use the 'docker run' commend for CPU and 'nvidea-docker run' GPU Compute)  
 $ mkdir dai_rel_1.0.30
 $ cd dai_rel_1.0.30/
@@ -101,8 +89,8 @@ $ apt install docker-ce
 ```
 ## Install Nvidia docker package: nvidia-docker  
 $ wget -P /tmp https://github.com/NVIDIA/nvidia-docker/releases/download/v1.0.1/nvidia-docker_1.0.1-1_amd64.deb
-$ sudo dpkg -i /tmp/nvidia-docker*.deb
-$ sudo rm /tmp/nvidia-docker*.deb
+$ dpkg -i /tmp/nvidia-docker*.deb
+$ rm /tmp/nvidia-docker*.deb
 ```
 ```
 $ docker load < driverless-ai-docker-runtime-latest-release.gz
