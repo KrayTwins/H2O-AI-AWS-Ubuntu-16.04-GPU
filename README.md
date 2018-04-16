@@ -59,7 +59,7 @@ $ sudo su
 ## Check Nvidia divers are installed for Nvidia Telsla K80 GPU
 $ nvidia-smi -q | head
 ```
-
+```
 If installed correctly will show \
 ==============NVSMI LOG==============
 
